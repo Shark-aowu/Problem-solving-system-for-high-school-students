@@ -1,13 +1,14 @@
 #include<stdio.h>
-int num[9], ram, bigger;
 
 int main(){
+	int num, bigger = 0, data[10] = {0};
 	for(int i = 0; i < 3; i++){
-		scanf("%d", &ram); 
-		num[ram - 1]++;
+		scanf("%d", &num);
+		data[num]++;
+		if(data[num] > bigger) bigger = data[num];
 	}
-	for(int i = 0; i < 9; i++)if(num[i] > bigger)bigger = num[i];
 	printf("%d ", bigger);
-	for(int i = 8; i > -1; i--)if(num[i] != 0) printf("%d ", i + 1);
+	for(int i = 9; i >= 0; i--)
+		if(data[i] != 0) printf("%d ", i); 
 	return 0;
-}
+} 
